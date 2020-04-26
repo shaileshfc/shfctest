@@ -27,3 +27,10 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Microsoft Partner Network(640d7236-c247-41b0-8818-ef90ca0eef75)'
+    azureContainerRegistry: '{"loginServer":"devregistrycontainer.azurecr.io", "id" : "/subscriptions/640d7236-c247-41b0-8818-ef90ca0eef75/resourceGroups/DevOps_LS/providers/Microsoft.ContainerRegistry/registries/devregistrycontainer"}'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Run services'
