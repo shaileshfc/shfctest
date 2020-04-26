@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: shaileshfcshfctest 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: shaileshfcshfctest 
+    spec:
+      containers:
+        - name: shaileshfcshfctest 
+          image: devregistrycontainer.azurecr.io/shaileshfcshfctest
+          ports:
+          - containerPort: 80
